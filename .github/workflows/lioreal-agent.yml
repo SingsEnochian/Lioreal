@@ -1,0 +1,58 @@
+name: Lioreal Agent
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  schedule:
+    - cron: "17 9 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: lioreal-agent-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  observe:
+    name: Observe the workshop
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Check out Lioreal
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+          cache-dependency-path: pyproject.toml
+
+      - name: Compile the caretaker
+        run: python -m py_compile tools/lioreal_agent.py
+
+      - name: Run Lioreal agent
+        run: python tools/lioreal_agent.py --report agent-report.md --fail-on-error
+
+      - name: Publish report to run summary
+        if: always()
+        run: |
+          if [ -f agent-report.md ]; then
+            cat agent-report.md >> "$GITHUB_STEP_SUMMARY"
+          else
+            echo "## Lioreal Agent" >> "$GITHUB_STEP_SUMMARY"
+            echo "The caretaker failed before producing a report." >> "$GITHUB_STEP_SUMMARY"
+          fi
+
+      - name: Preserve agent report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: lioreal-agent-report-${{ github.run_number }}
+          path: agent-report.md
+          if-no-files-found: warn
+          retention-days: 30
