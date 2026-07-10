@@ -10,6 +10,18 @@ This is not a museum and it is not a dumping ground. It is a working room: sketc
 
 > Build things that make the House easier, stranger, clearer, kinder, or more alive.
 
+## The resident agent
+
+Lioreal has its own local-first caretaker at `tools/lioreal_agent.py`, governed by `AGENTS.md`.
+
+The agent inventories the workshop, detects missing structural pieces and open work markers, produces a machine-readable health summary, and leaves an auditable Markdown report. It runs automatically through `.github/workflows/lioreal-agent.yml` on pushes, pull requests, every Monday, and manual dispatch.
+
+```bash
+python tools/lioreal_agent.py
+```
+
+Autonomous observation is allowed. Repository-changing repairs belong on reviewable branches and pull requests. No silent throne-building in the broom cupboard.
+
 ## Initial rooms
 
 - **garden/** — seeds, fragments, questions, and half-grown ideas
