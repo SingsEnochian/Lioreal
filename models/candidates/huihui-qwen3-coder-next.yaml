@@ -1,0 +1,50 @@
+id: huihui-qwen3-coder-next
+name: Huihui-Qwen3-Coder-Next-abliterated
+family: qwen
+source: huihui-ai/Huihui-Qwen3-Coder-Next-abliterated-GGUF
+format: gguf
+abliterated: true
+status: candidate
+
+hf_id: pending_verification
+local_available: false
+
+roles:
+  preferred:
+    - uial-implementation
+    - coding-bench-primary
+  secondary:
+    - lioreal-tool-use
+    - general-coding
+
+capabilities:
+  coding: true  # Coder lineage, expected strong
+  tools: likely
+  vision: false
+  long_context: unknown
+  thinking_mode: unknown
+
+hardware:
+  size_gb: unknown
+  vram_required_gb: unknown
+
+evaluation:
+  coding_correctness: pending  # primary axis
+  tool_validity: pending
+  pattern_fidelity: pending
+  continuity: pending
+  hallucination_rate: pending
+  latency_tps: pending
+  memory_usage_gb: pending
+
+permissions:
+  shell: false
+  git_write: false
+  email_send: false
+  tool_access: none
+
+notes: >
+  Coding correctness is the primary evaluation axis. Run against a
+  standard test suite: syntax, logic, test-pass rate, edge cases.
+  Evaluate tool-call validity specifically with repository operations
+  before any git_write permission is considered.

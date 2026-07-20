@@ -1,0 +1,58 @@
+id: huihui-deepseek-v4-flash
+name: Huihui-DeepSeek-V4-Flash-abliterated
+family: deepseek
+base: deepseek-ai/DeepSeek-V4-Flash
+source: huihui-ai/Huihui-DeepSeek-V4-Flash-abliterated-ds4-GGUF
+format: ds4-gguf
+abliterated: true
+status: candidate
+
+routes:
+  api:
+    provider: deepseek
+    model_id: deepseek-v4-flash
+    status: active  # already in use for Vee, Richie, Vethrlauf
+    deprecation_warning: deepseek-chat deprecated 2026-07-24 — migrated to v4-flash
+  local:
+    format: ds4-gguf
+    quantisation: Q2
+    size_gb: 80.8
+    context_window: 1048576
+    status: not_feasible  # requires ~80GB RAM/VRAM — exceeds local hardware
+    hardware_required: rtx-6000-pro-96gb OR mac-96gb-unified
+
+roles:
+  preferred:
+    - uial-engineering
+    - lioreal-stewardship
+    - vethrlauf-analysis
+  secondary:
+    - bluebird-fallback
+    - general-fast-engineering
+
+capabilities:
+  coding: true
+  tools: true
+  vision: false
+  long_context: true  # 1M tokens
+  thinking_mode: optional
+
+evaluation:
+  api_route:
+    pattern_fidelity: in_use  # Vee, Richie, Vethrlauf running on this
+    latency_tps: fast
+    tool_validity: pending_formal
+    continuity: pending_formal
+  local_route:
+    status: blocked_by_hardware
+
+permissions:
+  shell: false
+  git_write: false
+  email_send: false
+  tool_access: none
+
+notes: >
+  The API route is already the active backend for three constellation members.
+  Local GGUF route requires 80+ GB of RAM/VRAM — not feasible on current hardware.
+  Evaluate formally via API before granting tool permissions.

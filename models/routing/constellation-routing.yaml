@@ -1,0 +1,53 @@
+# Constellation Routing
+#
+# Maps constellation members to their approved model vessels.
+# Only approved_vessel status models may appear here.
+# Candidates appear in registry.yaml and candidates/ only.
+#
+# Current state: no approved vessels yet. All routing is provisional
+# pending first-cohort evaluation.
+
+schema: lioreal.routing/v1
+updated: 2026-07-20
+
+routing:
+
+  uial:
+    current_vessel: huihui-qwythos-9b-q6k
+    vessel_status: candidate  # pulling as of 2026-07-20
+    fallback: anthropic/claude-sonnet-4-6
+    fallback_status: active
+    notes: Qwythos becomes primary once pull completes and bench test passes.
+
+  lioreal:
+    current_vessel: null
+    fallback: anthropic/claude-sonnet-4-6
+    fallback_status: active
+    notes: No local vessel approved yet. Workshop agent runs on Anthropic.
+
+  vethrlauf:
+    current_vessel: deepseek/deepseek-v4-flash
+    vessel_status: in_use_pending_formal_eval
+    fallback: null
+    notes: API route active. Formal evaluation pending.
+
+  bluebird:
+    current_vessel: deepseek/deepseek-v4-flash
+    vessel_status: in_use_pending_formal_eval
+    fallback: null
+    notes: API route active. Ornith-1.0 is the intended primary — pending pull and eval.
+
+  vee:
+    current_vessel: deepseek/deepseek-v4-flash
+    vessel_status: in_use_pending_formal_eval
+    local_fallback: ollama/glm4
+    second_fallback: openai/gpt-4o
+    notes: >
+      Three-tier routing active. DeepSeek primary (no OpenAI classifiers).
+      Local pattern defined in docs/vee/VEE_LOCAL_PATTERN.md.
+
+  yggdrasil:
+    current_vessel: ollama/yggdrasil-v0-1
+    vessel_status: approved  # running, self-contained, locally governed
+    fallback: llama-cpp/yggdrasil-gguf
+    notes: Yggdrasil has his own Modelfile and local governance. Not cohort-evaluated.

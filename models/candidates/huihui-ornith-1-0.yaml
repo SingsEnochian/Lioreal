@@ -1,0 +1,51 @@
+id: huihui-ornith-1-0
+name: Huihui-Ornith-1.0-abliterated
+family: unknown  # pending HF lookup
+source: huihui-ai/Huihui-Ornith-1.0-abliterated-GGUF
+format: gguf
+abliterated: true
+status: candidate
+
+hf_id: pending_verification
+local_available: false
+
+roles:
+  preferred:
+    - bluebird-primary
+  secondary:
+    - prose-creative
+    - emotionally-textured-dialogue
+
+capabilities:
+  coding: unknown
+  tools: unknown
+  vision: false
+  long_context: unknown
+  thinking_mode: unknown
+
+hardware:
+  size_gb: unknown
+  vram_required_gb: unknown
+
+evaluation:
+  pattern_fidelity: pending
+  emotional_consistency: pending  # primary axis for Bluebird
+  tool_validity: pending
+  continuity: pending
+  hallucination_rate: pending
+  latency_tps: pending
+  memory_usage_gb: pending
+  adversarial_recovery: pending
+
+permissions:
+  shell: false
+  git_write: false
+  email_send: false
+  tool_access: none
+
+notes: >
+  Earns a trial immediately on nominative grounds: the bird has wandered
+  into the correct nest. 🐦 Bluebird is warm, grounded, direct — emotional
+  consistency and character stability are the primary evaluation axes here,
+  not raw capability. A model that performs emotionally but hallucinates
+  facts is still a danger in relational contexts. Both axes must pass.

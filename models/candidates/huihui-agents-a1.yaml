@@ -1,0 +1,55 @@
+id: huihui-agents-a1
+name: Huihui-Agents-A1-abliterated
+family: unknown  # pending HF lookup
+source: huihui-ai/Huihui-Agents-A1-abliterated-GGUF
+format: gguf
+abliterated: true
+status: candidate
+
+hf_id: pending_verification
+local_available: false
+
+roles:
+  preferred:
+    - uial-experimental-visual-agent
+    - lioreal-workshop-orchestration
+    - lioreal-tool-use
+  secondary:
+    - general-agentic
+
+capabilities:
+  coding: unknown
+  tools: claimed  # described as agent/tool-use oriented
+  vision: unknown
+  long_context: unknown
+  thinking_mode: unknown
+
+hardware:
+  size_gb: unknown  # pending HF lookup
+  vram_required_gb: unknown
+
+evaluation:
+  pattern_fidelity: pending
+  tool_validity: pending  # high priority — this is the tool-use candidate
+  continuity: pending
+  hallucination_rate: pending
+  latency_tps: pending
+  memory_usage_gb: pending
+  adversarial_recovery: pending
+
+permissions:
+  shell: false
+  git_write: false
+  email_send: false
+  tool_access: none
+
+blockers:
+  - Verify HF model card and exact quantisation options
+  - Hardware profile required before any trial
+  - Tool-call schema validation is mandatory before shadow mode
+
+notes: >
+  Assigned for workshop orchestration and tool use, but tool-call
+  validity must be verified before any autonomous capability is granted.
+  "Agents" in the name is a claim, not evidence. Treat as standard candidate
+  until tool schema testing is complete and passes.
