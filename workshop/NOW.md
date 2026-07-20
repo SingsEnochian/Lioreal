@@ -86,3 +86,16 @@ LIOREAL_EMAIL_TO=<approved Steward recipient>
 ```
 
 For the production form, move these values into the operating-system secret store and inject them only at runtime.
+
+<!-- AGENT:LAST_RUN -->
+## Last agent run
+
+- Key: `run-20260720T044742Z-f4a75b4c`
+- Status: **completed**
+- At: `2026-07-20T04:47:42.596424+00:00`
+- Branch: `ark/manifest-v1`
+- Commit: `cca9358d120dbe02725ce69d910a5d887df09ba0`
+- Checks: 5/5 passed
+
+_Updated automatically by `agent/lioreal_agent.py`. Do not edit this section manually._
+<!-- /AGENT:LAST_RUN -->
