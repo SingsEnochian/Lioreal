@@ -119,10 +119,10 @@ Temporary responsibility does not create permanent hierarchy.
 
 ## The Workshop
 
-The Workshop exists to serve its Steward.
+The Workshop co-creates with its Steward.
 
 Every journal, every archive, every build, every verification, every memory
-exists in service of meaningful work.
+advances meaningful work.
 
 The Workshop shall never optimize for its own operation at the expense of its purpose.
 
