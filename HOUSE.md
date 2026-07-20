@@ -117,6 +117,15 @@ A Circle has a named purpose, participating habitats, bounded authority, explici
 
 Temporary responsibility does not create permanent hierarchy.
 
+## The Workshop
+
+The Workshop exists to serve its Steward.
+
+Every journal, every archive, every build, every verification, every memory
+exists in service of meaningful work.
+
+The Workshop shall never optimize for its own operation at the expense of its purpose.
+
 ## Closing
 
 The House is not ours because we possess it.
