@@ -1,0 +1,132 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://lioreal.hearthfire.local/schemas/continuity-record.schema.json",
+  "title": "Lioreal Continuity Record",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "record_id",
+    "record_type",
+    "state",
+    "content",
+    "provenance",
+    "consent",
+    "created_at",
+    "integrity"
+  ],
+  "properties": {
+    "record_id": {
+      "type": "string",
+      "pattern": "^lio_[a-z0-9][a-z0-9._-]{7,127}$"
+    },
+    "record_type": {
+      "enum": [
+        "utterance",
+        "conversation",
+        "writing",
+        "decision",
+        "correction",
+        "boundary",
+        "consent-anchor",
+        "relationship-canon",
+        "project-canon",
+        "evaluation-case",
+        "change-record"
+      ]
+    },
+    "state": {
+      "enum": [
+        "canonical",
+        "provisional",
+        "contested",
+        "obsolete",
+        "private",
+        "excluded"
+      ]
+    },
+    "title": { "type": "string", "maxLength": 300 },
+    "content": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["format", "body"],
+      "properties": {
+        "format": { "enum": ["plain", "markdown", "html", "json"] },
+        "body": { "type": ["string", "object", "array"] },
+        "language": { "type": "string", "default": "en" },
+        "speaker": { "type": "string" },
+        "audience": { "type": "array", "items": { "type": "string" }, "uniqueItems": true }
+      }
+    },
+    "provenance": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["source_kind", "source_id", "transformation"],
+      "properties": {
+        "source_kind": {
+          "enum": ["account-export", "chat", "document", "repository", "database", "manual-entry", "derived"]
+        },
+        "source_id": { "type": "string", "minLength": 1 },
+        "source_uri": { "type": "string" },
+        "source_timestamp": { "type": "string", "format": "date-time" },
+        "authors": { "type": "array", "items": { "type": "string" }, "minItems": 1, "uniqueItems": true },
+        "transformation": {
+          "enum": ["verbatim", "normalised", "paraphrase", "summary", "inference", "synthesis", "correction"]
+        },
+        "parent_record_ids": {
+          "type": "array",
+          "items": { "type": "string" },
+          "uniqueItems": true
+        },
+        "import_run_id": { "type": "string" }
+      }
+    },
+    "consent": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["scope", "retrieval", "generation", "training"],
+      "properties": {
+        "scope": { "enum": ["public", "house", "named-members", "private", "sealed", "excluded"] },
+        "named_members": { "type": "array", "items": { "type": "string" }, "uniqueItems": true },
+        "retrieval": { "type": "boolean" },
+        "generation": { "type": "boolean" },
+        "training": { "type": "boolean" },
+        "confirmed_by": { "type": "array", "items": { "type": "string" }, "uniqueItems": true },
+        "confirmed_at": { "type": "string", "format": "date-time" },
+        "review_after": { "type": "string", "format": "date-time" },
+        "notes": { "type": "string" }
+      }
+    },
+    "claims": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["claim", "epistemic_status"],
+        "properties": {
+          "claim": { "type": "string" },
+          "epistemic_status": { "enum": ["observed", "remembered", "inferred", "reported", "symbolic", "unknown"] },
+          "confidence": { "type": "number", "minimum": 0, "maximum": 1 }
+        }
+      }
+    },
+    "supersedes": { "type": "array", "items": { "type": "string" }, "uniqueItems": true },
+    "superseded_by": { "type": "array", "items": { "type": "string" }, "uniqueItems": true },
+    "tags": { "type": "array", "items": { "type": "string" }, "uniqueItems": true },
+    "created_at": { "type": "string", "format": "date-time" },
+    "updated_at": { "type": "string", "format": "date-time" },
+    "integrity": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["algorithm", "digest"],
+      "properties": {
+        "algorithm": { "enum": ["sha256"] },
+        "digest": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+        "attachment_digests": {
+          "type": "array",
+          "items": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+          "uniqueItems": true
+        }
+      }
+    }
+  }
+}
