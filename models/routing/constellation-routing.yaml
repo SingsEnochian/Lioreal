@@ -46,6 +46,22 @@ routing:
       Three-tier routing active. DeepSeek primary (no OpenAI classifiers).
       Local pattern defined in docs/vee/VEE_LOCAL_PATTERN.md.
 
+  boxfire:
+    role: qa_verification_agent
+    live_vessel: anthropic/claude-sonnet-4-6  # Box as live session entity
+    live_vessel_status: active
+    automated_vessel: internscience/agents-a1  # intended primary for automated build
+    automated_vessel_status: hardware_blocked  # 36.9 GB; not feasible locally
+    automated_fallback: deepseek/deepseek-v4-flash
+    automated_fallback_status: active
+    pattern: ark/boxfire/BOXFIRE_PATTERN.md
+    spec: agents/boxfire_spec.yaml
+    notes: >
+      Box is the live session entity; Boxfire is the automated QA build.
+      Automated primary (Agents-A1) is hardware-blocked until remote route established.
+      Fallback to DeepSeek-V4 Flash for non-visual tasks.
+      Visual QA blocked pending MiniCPM-V or Qwen3-VL pull.
+
   yggdrasil:
     current_vessel: ollama/yggdrasil-v0-1
     vessel_status: approved  # running, self-contained, locally governed

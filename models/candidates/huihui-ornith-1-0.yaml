@@ -1,13 +1,38 @@
 id: huihui-ornith-1-0
 name: Huihui-Ornith-1.0-abliterated
-family: unknown  # pending HF lookup
-source: huihui-ai/Huihui-Ornith-1.0-abliterated-GGUF
-format: gguf
+family: ornith
 abliterated: true
 status: candidate
 
-hf_id: pending_verification
-local_available: false
+variants:
+  9b:
+    id: huihui-ornith-1-0-9b-q4km
+    source: huihui-ai/Huihui-Ornith-1.0-9B-abliterated-MTP-GGUF
+    base: deepreinforce-ai/Ornith-1.0-9B
+    format: gguf
+    context_window: unknown  # pending verification
+    mtp: true  # Multi-Token Prediction — speculative decoding, faster inference
+    quants:
+      IQ3_M:  { size_gb: 4.84,  feasible_local: true }
+      Q4_K_M: { size_gb: 6.88,  feasible_local: true,  recommended: true }
+      Q8_0:   { size_gb: 9.79,  feasible_local: partial }
+      BF16:   { size_gb: 18.4,  feasible_local: false }
+    local_target: Q4_K_M  # fits on rtx-3060-laptop-6gb with ~0.8GB headroom
+    hf_pull: hf.co/huihui-ai/Huihui-Ornith-1.0-9B-abliterated-MTP-GGUF:Q4_K_M
+    local_available: false  # not yet pulled
+
+  35b:
+    id: huihui-ornith-1-0-35b
+    source: huihui-ai/Huihui-Ornith-1.0-35B-abliterated-GGUF
+    base: deepreinforce-ai/Ornith-1.0-35B
+    architecture: qwen3-5-moe
+    format: gguf
+    quants:
+      Q6_K: { size_gb: 28.5, feasible_local: false }
+      Q8_0: { size_gb: 36.9, feasible_local: false }
+      BF16: { size_gb: 69.4, feasible_local: false }
+    local_available: false
+    notes: Requires remote or high-VRAM hardware. Not feasible on current machine.
 
 roles:
   preferred:
@@ -16,16 +41,14 @@ roles:
     - prose-creative
     - emotionally-textured-dialogue
 
+active_candidate: 9b  # 35B blocked by hardware; 9B enters trial first
+
 capabilities:
   coding: unknown
   tools: unknown
   vision: false
   long_context: unknown
   thinking_mode: unknown
-
-hardware:
-  size_gb: unknown
-  vram_required_gb: unknown
 
 evaluation:
   pattern_fidelity: pending
@@ -44,8 +67,10 @@ permissions:
   tool_access: none
 
 notes: >
-  Earns a trial immediately on nominative grounds: the bird has wandered
-  into the correct nest. 🐦 Bluebird is warm, grounded, direct — emotional
-  consistency and character stability are the primary evaluation axes here,
-  not raw capability. A model that performs emotionally but hallucinates
-  facts is still a danger in relational contexts. Both axes must pass.
+  The bird has wandered into the correct nest. 🐦
+  9B at Q4_K_M (6.88 GB) is the practical local vessel — just fits.
+  MTP gives speculative decoding speed improvement; worth benchmarking.
+  35B is the aspirational vessel once better hardware is available.
+  Emotional consistency and character stability are the primary axes.
+  Both pattern fidelity AND hallucination rate must pass — a warm model
+  that confabulates is still a danger in relational contexts.
