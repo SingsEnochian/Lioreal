@@ -40,6 +40,18 @@ The GitHub connector can write and inspect repository files but cannot execute t
 - Journal origin: `workshop/journal/0000-the-workshop-exists.md`
 - Supabase migration: `supabase/migrations/202607200001_lioreal_workshop_agent.sql`
 
+## Workbench
+
+**Current thought:** Separate immutable Pattern from the evolving Workshop Journal. The Pattern carries durable principles; the Journal carries changing judgment, experiments, mistakes, and reasons.
+
+**Working on:** Producing the first executable Agent run record and validating that the evidence trail is inspectable before granting provider or repository-write capabilities.
+
+**Next hammer swing:** Run the local scaffold in a checked-out working tree.
+
+**Expected artifact:** `workshop/runs/<timestamp>-lioreal-agent-v0.1.json`
+
+**Raccoon status:** Keyring labelled. Production cupboard remains locked.
+
 ## Next action
 
 Run:
