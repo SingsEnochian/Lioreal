@@ -1,0 +1,269 @@
+{
+  "id": "terra-aeterna-reception",
+  "name": "Terra Aeterna Reception",
+  "world": "Terra Aeterna",
+  "version": "0.1",
+  "status": "calibration",
+  "evidence_label": "subjective-experiment",
+  "intent": {
+    "qualities": [
+      "expanded",
+      "relational",
+      "oceanic",
+      "creative",
+      "dream-adjacent",
+      "oriented"
+    ],
+    "use_cases": [
+      "fiction writing",
+      "worldbuilding",
+      "visual art",
+      "roleplay",
+      "quiet imaginative entry"
+    ],
+    "avoid": [
+      "startle-heavy transitions",
+      "piercing pure sine tones",
+      "dense upper-harmonic congestion",
+      "loss of easy orientation"
+    ]
+  },
+  "consent": {
+    "pause_control": true,
+    "stop_control": true,
+    "plain_pass": true,
+    "layer_mute": true,
+    "local_first": true,
+    "notes": [
+      "Feather or Icarus pauses the session for a consent check.",
+      "Every audible, modulation, spatial, and haptic layer must be independently mutable.",
+      "No session observation is synchronised without explicit export or approval."
+    ]
+  },
+  "phases": [
+    {
+      "id": "baseline",
+      "label": "Baseline",
+      "duration_seconds": 60,
+      "purpose": "Establish a quiet comparison state before world cues begin.",
+      "active_layers": ["oceanic-bed"],
+      "transition": "Slow equal-power fade into threshold."
+    },
+    {
+      "id": "threshold",
+      "label": "J Space Vestibule",
+      "duration_seconds": 180,
+      "purpose": "Reduce competing attention while preserving orientation and choice.",
+      "active_layers": ["oceanic-bed", "theta-breath", "stonewood-foundation"],
+      "transition": "The ringed-moon cue appears once, then the triad harmonics enter."
+    },
+    {
+      "id": "arrival",
+      "label": "Ringed Moon Arrival",
+      "duration_seconds": 120,
+      "purpose": "Present Terra Aeterna's unmistakable arrival signature.",
+      "active_layers": [
+        "oceanic-bed",
+        "theta-breath",
+        "stonewood-foundation",
+        "ringed-moon-orbit",
+        "hearthlight-root",
+        "north-star-fifth",
+        "lochflame-third"
+      ],
+      "transition": "Open into full spatial field without a volume jump."
+    },
+    {
+      "id": "immersion",
+      "label": "Hearthweave Immersion",
+      "duration_seconds": 900,
+      "purpose": "Support imaginative inhabitation and creative work.",
+      "active_layers": [
+        "oceanic-bed",
+        "stonewood-foundation",
+        "ringed-moon-orbit",
+        "hearthlight-root",
+        "north-star-fifth",
+        "lochflame-third",
+        "kelyran-breath",
+        "haptic-foundation"
+      ],
+      "transition": "After the first five minutes, reduce conspicuous modulation unless manually retained."
+    },
+    {
+      "id": "return",
+      "label": "Hearthward Return",
+      "duration_seconds": 180,
+      "purpose": "Withdraw world layers in a stable order and restore ordinary orientation.",
+      "active_layers": ["oceanic-bed", "hearthlight-root", "return-cue"],
+      "transition": "Haptics and spatial motion stop first; triad resolves to root; ocean remains briefly, then fades."
+    }
+  ],
+  "layers": [
+    {
+      "id": "oceanic-bed",
+      "kind": "noise",
+      "enabled_by_default": true,
+      "gain": 0.16,
+      "source": "soft broadband oceanic texture with pink-noise weighting",
+      "routing": "stereo wide, centre preserved",
+      "notes": ["Avoid obvious looping.", "No sharp surf transients."]
+    },
+    {
+      "id": "theta-breath",
+      "kind": "modulation",
+      "enabled_by_default": true,
+      "gain": 0.08,
+      "rate_hz": 5.5,
+      "depth": 0.12,
+      "source": "amplitude modulation applied to selected ambient layers",
+      "routing": "monaural or shared amplitude modulation, not binaural-only",
+      "notes": ["Calibration variable; disable independently.", "Do not describe as guaranteed brainwave induction."]
+    },
+    {
+      "id": "stonewood-foundation",
+      "kind": "tonal",
+      "enabled_by_default": true,
+      "gain": 0.1,
+      "frequency_hz": 110,
+      "source": "warm low harmonic bed with softened upper partials",
+      "routing": "centre-low, headphone and speaker safe",
+      "notes": ["Prototype frequency, not canonical metaphysical value."]
+    },
+    {
+      "id": "ringed-moon-orbit",
+      "kind": "spatial",
+      "enabled_by_default": true,
+      "gain": 0.1,
+      "orbit_seconds": 55,
+      "source": "pale-gold orbital shimmer",
+      "routing": "slow azimuth and depth movement",
+      "notes": ["No rapid panning.", "Provide a fixed-centre accessibility option."]
+    },
+    {
+      "id": "hearthlight-root",
+      "kind": "tonal",
+      "enabled_by_default": true,
+      "gain": 0.14,
+      "source": "Falka harmonic root",
+      "routing": "central and warm",
+      "notes": ["Final pitch class is selected by the active Flameclyffe composition context."]
+    },
+    {
+      "id": "north-star-fifth",
+      "kind": "tonal",
+      "enabled_by_default": true,
+      "gain": 0.09,
+      "source": "Virelya perfect fifth",
+      "routing": "slightly elevated and spatially stable",
+      "notes": ["Must remain supportive rather than piercing."]
+    },
+    {
+      "id": "lochflame-third",
+      "kind": "tonal",
+      "enabled_by_default": true,
+      "gain": 0.08,
+      "source": "Faer minor-third colour",
+      "routing": "low lateral warmth",
+      "notes": ["May enter later than root and fifth during calibration."]
+    },
+    {
+      "id": "kelyran-breath",
+      "kind": "voice",
+      "enabled_by_default": false,
+      "gain": 0.05,
+      "source": "non-lexical Kelyran vowel and breath textures",
+      "routing": "diffuse, never directly behind the listener",
+      "notes": ["Optional until Audible Glyph playback is connected.", "No intelligible phrase without explicit selection."]
+    },
+    {
+      "id": "haptic-foundation",
+      "kind": "haptic",
+      "enabled_by_default": false,
+      "gain": 0.08,
+      "frequency_hz": 174,
+      "source": "Woojer-compatible low-intensity pulse bed",
+      "routing": "haptic output only",
+      "notes": ["Separate from the audible mix.", "Begin below perceptual prominence and increase only manually."]
+    },
+    {
+      "id": "return-cue",
+      "kind": "cue",
+      "enabled_by_default": true,
+      "gain": 0.1,
+      "source": "single hearth chime followed by room-tone settling",
+      "routing": "centre",
+      "notes": ["The same cue closes every Terra Aeterna session."]
+    }
+  ],
+  "canonical_motifs": [
+    {
+      "id": "triad-relationship",
+      "meaning": "Falka as root, Virelya as perfect fifth, Faer as minor-third colour.",
+      "implementation": "Resolve actual pitch classes through Flameclyffe's active harmonic context.",
+      "source_system": "Flameclyffe"
+    },
+    {
+      "id": "three-moons",
+      "meaning": "Pale-gold ringed moon, green agate moon, and deep mauve cracked moon.",
+      "implementation": "Begin with the ringed moon as the arrival cue; add the others only after the base profile is characterised.",
+      "source_system": "Flameclyffe"
+    },
+    {
+      "id": "hearth-centre",
+      "meaning": "Cosmic scale remains relational and inhabited rather than cold or empty.",
+      "implementation": "Keep a stable central root and warm room-tone anchor beneath spatial motion.",
+      "source_system": "manual"
+    }
+  ],
+  "observation": {
+    "pre_session": [
+      "sleepiness 0-10",
+      "pain 0-10",
+      "migraine activity 0-10",
+      "tinnitus intensity 0-10",
+      "emotional activation 0-10",
+      "creative readiness 0-10"
+    ],
+    "during_session": [
+      "felt presence 0-10",
+      "Terra recognition 0-10",
+      "imagery vividness 0-10",
+      "relational warmth 0-10",
+      "orientation stability 0-10",
+      "sound comfort 0-10",
+      "desire to mute or change a layer"
+    ],
+    "post_session": [
+      "ease of return 0-10",
+      "creative usefulness 0-10",
+      "what helped",
+      "what was hard",
+      "what is Held",
+      "one requested change for the next calibration"
+    ],
+    "stop_conditions": [
+      "painful or piercing sound",
+      "rapidly increasing tinnitus",
+      "migraine warning or aura",
+      "dizziness or nausea",
+      "distress, disorientation, or loss of voluntary comfort",
+      "Rowan says stop, Feather, Icarus, plain pass, or equivalent"
+    ]
+  },
+  "adaptation": {
+    "automatic_changes_allowed": false,
+    "minimum_sessions_before_recommendation": 3,
+    "change_one_variable_at_a_time": true,
+    "approval_required": true
+  },
+  "provenance": {
+    "created_by": ["Rowan", "Vee"],
+    "created_at": "2026-07-26T01:08:00-04:00",
+    "revision_notes": [
+      "Initial calibration profile.",
+      "Designed for later rendering through Runa/Wardenclyffe and canonical parameter resolution through Flameclyffe.",
+      "No clinical or metaphysical efficacy claim is made."
+    ]
+  }
+}
