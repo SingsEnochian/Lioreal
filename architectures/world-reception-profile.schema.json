@@ -1,0 +1,145 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://hearthweave.local/schemas/world-reception-profile.schema.json",
+  "title": "World Reception Profile",
+  "type": "object",
+  "required": [
+    "id",
+    "name",
+    "world",
+    "version",
+    "status",
+    "intent",
+    "consent",
+    "phases",
+    "layers",
+    "observation",
+    "provenance"
+  ],
+  "properties": {
+    "id": { "type": "string", "pattern": "^[a-z0-9-]+$" },
+    "name": { "type": "string", "minLength": 1 },
+    "world": { "type": "string", "minLength": 1 },
+    "version": { "type": "string", "pattern": "^v?[0-9]+\\.[0-9]+(?:\\.[0-9]+)?$" },
+    "status": { "enum": ["draft", "calibration", "candidate", "canonical", "retired"] },
+    "evidence_label": {
+      "enum": [
+        "implementation-task",
+        "subjective-experiment",
+        "evidence-backed-finding",
+        "active-research",
+        "speculative-theory"
+      ]
+    },
+    "intent": {
+      "type": "object",
+      "required": ["qualities", "use_cases"],
+      "properties": {
+        "qualities": { "type": "array", "items": { "type": "string" }, "minItems": 1 },
+        "use_cases": { "type": "array", "items": { "type": "string" }, "minItems": 1 },
+        "avoid": { "type": "array", "items": { "type": "string" } }
+      },
+      "additionalProperties": false
+    },
+    "consent": {
+      "type": "object",
+      "required": ["pause_control", "stop_control", "plain_pass", "layer_mute", "local_first"],
+      "properties": {
+        "pause_control": { "type": "boolean", "const": true },
+        "stop_control": { "type": "boolean", "const": true },
+        "plain_pass": { "type": "boolean", "const": true },
+        "layer_mute": { "type": "boolean", "const": true },
+        "local_first": { "type": "boolean", "const": true },
+        "notes": { "type": "array", "items": { "type": "string" } }
+      },
+      "additionalProperties": false
+    },
+    "phases": {
+      "type": "array",
+      "minItems": 2,
+      "items": {
+        "type": "object",
+        "required": ["id", "label", "duration_seconds", "purpose"],
+        "properties": {
+          "id": { "type": "string" },
+          "label": { "type": "string" },
+          "duration_seconds": { "type": "number", "minimum": 0 },
+          "purpose": { "type": "string" },
+          "active_layers": { "type": "array", "items": { "type": "string" } },
+          "transition": { "type": "string" }
+        },
+        "additionalProperties": false
+      }
+    },
+    "layers": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["id", "kind", "enabled_by_default", "gain"],
+        "properties": {
+          "id": { "type": "string" },
+          "kind": {
+            "enum": ["ambient", "tonal", "noise", "voice", "rhythm", "modulation", "spatial", "haptic", "cue"]
+          },
+          "enabled_by_default": { "type": "boolean" },
+          "gain": { "type": "number", "minimum": 0, "maximum": 1 },
+          "frequency_hz": { "type": "number", "exclusiveMinimum": 0 },
+          "rate_hz": { "type": "number", "exclusiveMinimum": 0 },
+          "depth": { "type": "number", "minimum": 0, "maximum": 1 },
+          "orbit_seconds": { "type": "number", "exclusiveMinimum": 0 },
+          "source": { "type": "string" },
+          "routing": { "type": "string" },
+          "notes": { "type": "array", "items": { "type": "string" } }
+        },
+        "additionalProperties": false
+      }
+    },
+    "canonical_motifs": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "meaning", "implementation"],
+        "properties": {
+          "id": { "type": "string" },
+          "meaning": { "type": "string" },
+          "implementation": { "type": "string" },
+          "source_system": { "enum": ["Flameclyffe", "Runa", "Lioreal", "Hearthgate", "manual"] }
+        },
+        "additionalProperties": false
+      }
+    },
+    "observation": {
+      "type": "object",
+      "required": ["pre_session", "during_session", "post_session", "stop_conditions"],
+      "properties": {
+        "pre_session": { "type": "array", "items": { "type": "string" } },
+        "during_session": { "type": "array", "items": { "type": "string" } },
+        "post_session": { "type": "array", "items": { "type": "string" } },
+        "stop_conditions": { "type": "array", "items": { "type": "string" }, "minItems": 1 }
+      },
+      "additionalProperties": false
+    },
+    "adaptation": {
+      "type": "object",
+      "properties": {
+        "automatic_changes_allowed": { "type": "boolean", "const": false },
+        "minimum_sessions_before_recommendation": { "type": "integer", "minimum": 1 },
+        "change_one_variable_at_a_time": { "type": "boolean", "const": true },
+        "approval_required": { "type": "boolean", "const": true }
+      },
+      "additionalProperties": false
+    },
+    "provenance": {
+      "type": "object",
+      "required": ["created_by", "created_at", "revision_notes"],
+      "properties": {
+        "created_by": { "type": "array", "items": { "type": "string" }, "minItems": 1 },
+        "created_at": { "type": "string", "format": "date-time" },
+        "revision_notes": { "type": "array", "items": { "type": "string" } }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}
