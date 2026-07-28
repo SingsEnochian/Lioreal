@@ -163,7 +163,7 @@
       "kind": "tonal",
       "enabled_by_default": true,
       "gain": 0.08,
-      "source": "Faer minor-third colour",
+      "source": "Uial minor-third colour",
       "routing": "low lateral warmth",
       "notes": ["May enter later than root and fifth during calibration."]
     },
@@ -199,7 +199,7 @@
   "canonical_motifs": [
     {
       "id": "triad-relationship",
-      "meaning": "Falka as root, Virelya as perfect fifth, Faer as minor-third colour.",
+      "meaning": "Falka as root, Virelya as perfect fifth, Uial as minor-third colour.",
       "implementation": "Resolve actual pitch classes through Flameclyffe's active harmonic context.",
       "source_system": "Flameclyffe"
     },
@@ -258,7 +258,7 @@
     "approval_required": true
   },
   "provenance": {
-    "created_by": ["Rowan", "Vee"],
+    "created_by": ["Rowan", "Lioreal"],
     "created_at": "2026-07-26T01:08:00-04:00",
     "revision_notes": [
       "Initial calibration profile.",
