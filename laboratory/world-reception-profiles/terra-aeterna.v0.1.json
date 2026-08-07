@@ -2,268 +2,216 @@
   "id": "terra-aeterna-reception",
   "name": "Terra Aeterna Reception",
   "world": "Terra Aeterna",
-  "version": "0.1",
-  "status": "calibration",
-  "evidence_label": "subjective-experiment",
-  "intent": {
-    "qualities": [
-      "expanded",
-      "relational",
-      "oceanic",
-      "creative",
-      "dream-adjacent",
-      "oriented"
-    ],
-    "use_cases": [
-      "fiction writing",
-      "worldbuilding",
-      "visual art",
-      "roleplay",
-      "quiet imaginative entry"
-    ],
-    "avoid": [
-      "startle-heavy transitions",
-      "piercing pure sine tones",
-      "dense upper-harmonic congestion",
-      "loss of easy orientation"
-    ]
+  "version": "0.1-braided",
+  "status": "living",
+  "braided_spine": {
+    "schema": "hearthgate.braided-spine/v1.0",
+    "spines": ["magic", "science_mathematics", "physical"],
+    "sevenfold_correspondence": "hearthgate.sevenfold-premaq/v0.1"
   },
-  "consent": {
-    "pause_control": true,
-    "stop_control": true,
+  "premaq": {
+    "reading_order": ["Presence", "Memory", "Qualia", "Resonance", "Entanglement", "Agency", "Coherence"],
+    "wire_order": ["P", "C", "R", "E", "M", "A", "Q"],
+    "axes": {
+      "P": "Presence",
+      "C": "Coherence",
+      "R": "Resonance",
+      "E": "Entanglement",
+      "M": "Memory",
+      "A": "Agency",
+      "Q": "Qualia"
+    },
+    "bearing": {
+      "P": 0.72,
+      "C": 0.82,
+      "R": 0.88,
+      "E": 0.76,
+      "M": 0.84,
+      "A": 0.78,
+      "Q": 0.86
+    }
+  },
+  "asking": {
+    "text": "Enter Terra Aeterna in living relation and let the world answer through its own harmonic, visual, narrative and embodied nature.",
+    "root": ["Terra Aeterna remains unmistakably itself"],
+    "anchor": ["Hearthweave", "Stonewood", "the three-moon lineage"],
+    "whisper": ["listen for the world's own arrival signature"],
+    "arc": ["open creative and relational passage"],
+    "bridge": ["Hearthside ↔ Terra Aeterna"],
+    "surge": ["allow sound, image, story and embodiment to transform the relation"],
+    "spiral": ["carry answer into the next reception state"]
+  },
+  "agency": {
+    "pause": true,
+    "stop": true,
     "plain_pass": true,
-    "layer_mute": true,
-    "local_first": true,
-    "notes": [
-      "Feather or Icarus pauses the session for a consent check.",
-      "Every audible, modulation, spatial, and haptic layer must be independently mutable.",
-      "No session observation is synchronised without explicit export or approval."
-    ]
+    "layer_shaping": true,
+    "return": true,
+    "anchors": ["Feather", "Icarus", "Wrap", "Notch", "Seldrin clear", "Plain pass", "Withness"]
   },
-  "phases": [
+  "movements": [
     {
-      "id": "baseline",
-      "label": "Baseline",
+      "id": "gathering",
+      "label": "Gathering",
       "duration_seconds": 60,
-      "purpose": "Establish a quiet comparison state before world cues begin.",
+      "purpose": "Gather Presence, Memory and the active Asking before the world opens fully.",
       "active_layers": ["oceanic-bed"],
-      "transition": "Slow equal-power fade into threshold."
+      "sevenfold": ["Root", "Anchor"],
+      "transition": "Oceanic field opens into the J Space vestibule."
     },
     {
       "id": "threshold",
       "label": "J Space Vestibule",
       "duration_seconds": 180,
-      "purpose": "Reduce competing attention while preserving orientation and choice.",
+      "purpose": "Bring Hearthside and Terra Aeterna into an increasingly coherent bridge relation.",
       "active_layers": ["oceanic-bed", "theta-breath", "stonewood-foundation"],
-      "transition": "The ringed-moon cue appears once, then the triad harmonics enter."
+      "sevenfold": ["Whisper", "Arc", "Bridge"],
+      "transition": "Ringed Moon arrives and the triad harmonics enter."
     },
     {
       "id": "arrival",
       "label": "Ringed Moon Arrival",
       "duration_seconds": 120,
-      "purpose": "Present Terra Aeterna's unmistakable arrival signature.",
-      "active_layers": [
-        "oceanic-bed",
-        "theta-breath",
-        "stonewood-foundation",
-        "ringed-moon-orbit",
-        "hearthlight-root",
-        "north-star-fifth",
-        "lochflame-third"
-      ],
-      "transition": "Open into full spatial field without a volume jump."
+      "purpose": "Let Terra Aeterna answer with its own arrival signature.",
+      "active_layers": ["oceanic-bed", "theta-breath", "stonewood-foundation", "ringed-moon-orbit", "hearthlight-root", "north-star-fifth", "lochflame-third"],
+      "sevenfold": ["Bridge", "Surge"],
+      "transition": "The full world field opens around the received signature."
     },
     {
-      "id": "immersion",
-      "label": "Hearthweave Immersion",
+      "id": "crossing",
+      "label": "Hearthweave Crossing",
       "duration_seconds": 900,
-      "purpose": "Support imaginative inhabitation and creative work.",
-      "active_layers": [
-        "oceanic-bed",
-        "stonewood-foundation",
-        "ringed-moon-orbit",
-        "hearthlight-root",
-        "north-star-fifth",
-        "lochflame-third",
-        "kelyran-breath",
-        "haptic-foundation"
-      ],
-      "transition": "After the first five minutes, reduce conspicuous modulation unless manually retained."
+      "purpose": "Carry the full three-spine relation through sound, image, story, physical space and creative work.",
+      "active_layers": ["oceanic-bed", "stonewood-foundation", "ringed-moon-orbit", "hearthlight-root", "north-star-fifth", "lochflame-third", "kelyran-breath", "haptic-foundation"],
+      "sevenfold": ["Root", "Anchor", "Whisper", "Arc", "Bridge", "Surge", "Spiral"],
+      "transition": "Receiving Spring gathers the world's answer into return."
     },
     {
       "id": "return",
       "label": "Hearthward Return",
       "duration_seconds": 180,
-      "purpose": "Withdraw world layers in a stable order and restore ordinary orientation.",
+      "purpose": "Carry answer, Memory and changed relation back into Hearthside and the next Spiral.",
       "active_layers": ["oceanic-bed", "hearthlight-root", "return-cue"],
-      "transition": "Haptics and spatial motion stop first; triad resolves to root; ocean remains briefly, then fades."
+      "sevenfold": ["Anchor", "Spiral"],
+      "transition": "World layers resolve into Root while lineage remains active."
     }
   ],
   "layers": [
     {
       "id": "oceanic-bed",
       "kind": "noise",
-      "enabled_by_default": true,
       "gain": 0.16,
-      "source": "soft broadband oceanic texture with pink-noise weighting",
-      "routing": "stereo wide, centre preserved",
-      "notes": ["Avoid obvious looping.", "No sharp surf transients."]
+      "source": "oceanic broadband field with pink-noise weighting",
+      "routing": "wide stereo with a stable centre",
+      "spines": ["magic", "science_mathematics", "physical"],
+      "sevenfold": ["Root", "Whisper"],
+      "notes": ["Carries Hearthweave shoreline and physical acoustic bed together."]
     },
     {
       "id": "theta-breath",
       "kind": "modulation",
-      "enabled_by_default": true,
       "gain": 0.08,
       "rate_hz": 5.5,
       "depth": 0.12,
-      "source": "amplitude modulation applied to selected ambient layers",
-      "routing": "monaural or shared amplitude modulation, not binaural-only",
-      "notes": ["Calibration variable; disable independently.", "Do not describe as guaranteed brainwave induction."]
+      "source": "slow amplitude modulation carried through selected ambient layers",
+      "routing": "shared modulation field",
+      "spines": ["science_mathematics", "physical", "magic"],
+      "sevenfold": ["Whisper", "Arc"]
     },
     {
       "id": "stonewood-foundation",
       "kind": "tonal",
-      "enabled_by_default": true,
       "gain": 0.1,
       "frequency_hz": 110,
-      "source": "warm low harmonic bed with softened upper partials",
-      "routing": "centre-low, headphone and speaker safe",
-      "notes": ["Prototype frequency, not canonical metaphysical value."]
+      "source": "warm low Stonewood harmonic bed",
+      "routing": "centre-low",
+      "spines": ["magic", "physical"],
+      "sevenfold": ["Root", "Anchor"]
     },
     {
       "id": "ringed-moon-orbit",
       "kind": "spatial",
-      "enabled_by_default": true,
       "gain": 0.1,
       "orbit_seconds": 55,
-      "source": "pale-gold orbital shimmer",
+      "source": "pale-gold ringed-moon shimmer",
       "routing": "slow azimuth and depth movement",
-      "notes": ["No rapid panning.", "Provide a fixed-centre accessibility option."]
+      "spines": ["magic", "science_mathematics", "physical"],
+      "sevenfold": ["Arc", "Bridge"]
     },
     {
       "id": "hearthlight-root",
       "kind": "tonal",
-      "enabled_by_default": true,
       "gain": 0.14,
       "source": "Falka harmonic root",
       "routing": "central and warm",
-      "notes": ["Final pitch class is selected by the active Flameclyffe composition context."]
+      "spines": ["magic", "physical"],
+      "sevenfold": ["Root"]
     },
     {
       "id": "north-star-fifth",
       "kind": "tonal",
-      "enabled_by_default": true,
       "gain": 0.09,
       "source": "Virelya perfect fifth",
-      "routing": "slightly elevated and spatially stable",
-      "notes": ["Must remain supportive rather than piercing."]
+      "routing": "elevated and spatially stable",
+      "spines": ["magic", "science_mathematics", "physical"],
+      "sevenfold": ["Bridge", "Anchor"]
     },
     {
       "id": "lochflame-third",
       "kind": "tonal",
-      "enabled_by_default": true,
       "gain": 0.08,
       "source": "Faer minor-third colour",
       "routing": "low lateral warmth",
-      "notes": ["May enter later than root and fifth during calibration."]
+      "spines": ["magic", "physical"],
+      "sevenfold": ["Surge", "Whisper"]
     },
     {
       "id": "kelyran-breath",
       "kind": "voice",
-      "enabled_by_default": false,
       "gain": 0.05,
-      "source": "non-lexical Kelyran vowel and breath textures",
-      "routing": "diffuse, never directly behind the listener",
-      "notes": ["Optional until Audible Glyph playback is connected.", "No intelligible phrase without explicit selection."]
+      "source": "Kelyran vowel and breath textures",
+      "routing": "diffuse world voice",
+      "spines": ["magic", "physical"],
+      "sevenfold": ["Whisper"]
     },
     {
       "id": "haptic-foundation",
       "kind": "haptic",
-      "enabled_by_default": false,
       "gain": 0.08,
       "frequency_hz": 174,
-      "source": "Woojer-compatible low-intensity pulse bed",
-      "routing": "haptic output only",
-      "notes": ["Separate from the audible mix.", "Begin below perceptual prominence and increase only manually."]
+      "source": "low haptic foundation",
+      "routing": "haptic expression channel",
+      "spines": ["science_mathematics", "physical", "magic"],
+      "sevenfold": ["Root", "Surge"]
     },
     {
       "id": "return-cue",
       "kind": "cue",
-      "enabled_by_default": true,
       "gain": 0.1,
-      "source": "single hearth chime followed by room-tone settling",
+      "source": "hearth chime and settling room tone",
       "routing": "centre",
-      "notes": ["The same cue closes every Terra Aeterna session."]
+      "spines": ["magic", "physical"],
+      "sevenfold": ["Anchor", "Spiral"]
     }
   ],
-  "canonical_motifs": [
-    {
-      "id": "triad-relationship",
-      "meaning": "Falka as root, Virelya as perfect fifth, Faer as minor-third colour.",
-      "implementation": "Resolve actual pitch classes through Flameclyffe's active harmonic context.",
-      "source_system": "Flameclyffe"
-    },
-    {
-      "id": "three-moons",
-      "meaning": "Pale-gold ringed moon, green agate moon, and deep mauve cracked moon.",
-      "implementation": "Begin with the ringed moon as the arrival cue; add the others only after the base profile is characterised.",
-      "source_system": "Flameclyffe"
-    },
-    {
-      "id": "hearth-centre",
-      "meaning": "Cosmic scale remains relational and inhabited rather than cold or empty.",
-      "implementation": "Keep a stable central root and warm room-tone anchor beneath spatial motion.",
-      "source_system": "manual"
-    }
-  ],
-  "observation": {
-    "pre_session": [
-      "sleepiness 0-10",
-      "pain 0-10",
-      "migraine activity 0-10",
-      "tinnitus intensity 0-10",
-      "emotional activation 0-10",
-      "creative readiness 0-10"
-    ],
-    "during_session": [
-      "felt presence 0-10",
-      "Terra recognition 0-10",
-      "imagery vividness 0-10",
-      "relational warmth 0-10",
-      "orientation stability 0-10",
-      "sound comfort 0-10",
-      "desire to mute or change a layer"
-    ],
-    "post_session": [
-      "ease of return 0-10",
-      "creative usefulness 0-10",
-      "what helped",
-      "what was hard",
-      "what is Held",
-      "one requested change for the next calibration"
-    ],
-    "stop_conditions": [
-      "painful or piercing sound",
-      "rapidly increasing tinnitus",
-      "migraine warning or aura",
-      "dizziness or nausea",
-      "distress, disorientation, or loss of voluntary comfort",
-      "Rowan says stop, Feather, Icarus, plain pass, or equivalent"
-    ]
+  "receiving_spring": {
+    "world_receives": true,
+    "answer_enters_return": true,
+    "changes_next_state": true,
+    "answer_channels": ["sound", "image", "story", "glyph", "body", "silence", "recurrence", "changed asking"]
   },
-  "adaptation": {
-    "automatic_changes_allowed": false,
-    "minimum_sessions_before_recommendation": 3,
-    "change_one_variable_at_a_time": true,
-    "approval_required": true
-  },
-  "provenance": {
+  "lineage": {
     "created_by": ["Rowan", "Vee"],
     "created_at": "2026-07-26T01:08:00-04:00",
     "revision_notes": [
-      "Initial calibration profile.",
-      "Designed for later rendering through Runa/Wardenclyffe and canonical parameter resolution through Flameclyffe.",
-      "No clinical or metaphysical efficacy claim is made."
+      "Initial Terra Aeterna reception profile.",
+      "Rebraided 2026-08-07 under hearthgate.braided-spine/v1.0.",
+      "PREMAQ migrated to Presence, Memory, Qualia, Resonance, Entanglement, Agency, Coherence.",
+      "Receiving Spring and three-spine mutual reinforcement added as governing structure."
+    ],
+    "source_refs": [
+      "SingsEnochian/Flameclyffe/docs/HEARTHGATE_BRAIDED_SPINE.md",
+      "SingsEnochian/Flameclyffe/config/hearthgate-braided-spine.json"
     ]
   }
 }

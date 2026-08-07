@@ -1,145 +1,162 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://hearthweave.local/schemas/world-reception-profile.schema.json",
-  "title": "World Reception Profile",
+  "title": "World Reception Profile · Braided Spine",
   "type": "object",
+  "additionalProperties": true,
   "required": [
     "id",
     "name",
     "world",
     "version",
     "status",
-    "intent",
-    "consent",
-    "phases",
+    "braided_spine",
+    "premaq",
+    "asking",
+    "agency",
+    "movements",
     "layers",
-    "observation",
-    "provenance"
+    "receiving_spring",
+    "lineage"
   ],
+  "$defs": {
+    "premaqValues": {
+      "type": "object",
+      "required": ["P", "C", "R", "E", "M", "A", "Q"],
+      "properties": {
+        "P": { "type": "number" },
+        "C": { "type": "number" },
+        "R": { "type": "number" },
+        "E": { "type": "number" },
+        "M": { "type": "number" },
+        "A": { "type": "number" },
+        "Q": { "type": "number" }
+      }
+    }
+  },
   "properties": {
-    "id": { "type": "string", "pattern": "^[a-z0-9-]+$" },
+    "id": { "type": "string", "minLength": 1 },
     "name": { "type": "string", "minLength": 1 },
     "world": { "type": "string", "minLength": 1 },
-    "version": { "type": "string", "pattern": "^v?[0-9]+\\.[0-9]+(?:\\.[0-9]+)?$" },
-    "status": { "enum": ["draft", "calibration", "candidate", "canonical", "retired"] },
-    "evidence_label": {
-      "enum": [
-        "implementation-task",
-        "subjective-experiment",
-        "evidence-backed-finding",
-        "active-research",
-        "speculative-theory"
-      ]
-    },
-    "intent": {
+    "version": { "type": "string", "minLength": 1 },
+    "status": { "enum": ["seed", "living", "canonical", "resting", "archived"] },
+    "braided_spine": {
       "type": "object",
-      "required": ["qualities", "use_cases"],
+      "required": ["schema", "spines"],
       "properties": {
-        "qualities": { "type": "array", "items": { "type": "string" }, "minItems": 1 },
-        "use_cases": { "type": "array", "items": { "type": "string" }, "minItems": 1 },
-        "avoid": { "type": "array", "items": { "type": "string" } }
-      },
-      "additionalProperties": false
+        "schema": { "const": "hearthgate.braided-spine/v1.0" },
+        "spines": {
+          "type": "array",
+          "const": ["magic", "science_mathematics", "physical"]
+        },
+        "sevenfold_correspondence": { "type": "string" }
+      }
     },
-    "consent": {
+    "premaq": {
       "type": "object",
-      "required": ["pause_control", "stop_control", "plain_pass", "layer_mute", "local_first"],
+      "required": ["reading_order", "wire_order", "axes", "bearing"],
       "properties": {
-        "pause_control": { "type": "boolean", "const": true },
-        "stop_control": { "type": "boolean", "const": true },
-        "plain_pass": { "type": "boolean", "const": true },
-        "layer_mute": { "type": "boolean", "const": true },
-        "local_first": { "type": "boolean", "const": true },
-        "notes": { "type": "array", "items": { "type": "string" } }
-      },
-      "additionalProperties": false
+        "reading_order": {
+          "const": ["Presence", "Memory", "Qualia", "Resonance", "Entanglement", "Agency", "Coherence"]
+        },
+        "wire_order": { "const": ["P", "C", "R", "E", "M", "A", "Q"] },
+        "axes": {
+          "const": {
+            "P": "Presence",
+            "C": "Coherence",
+            "R": "Resonance",
+            "E": "Entanglement",
+            "M": "Memory",
+            "A": "Agency",
+            "Q": "Qualia"
+          }
+        },
+        "bearing": { "$ref": "#/$defs/premaqValues" }
+      }
     },
-    "phases": {
+    "asking": {
+      "type": "object",
+      "required": ["text"],
+      "properties": {
+        "text": { "type": "string" },
+        "root": { "type": "array", "items": { "type": "string" } },
+        "anchor": { "type": "array", "items": { "type": "string" } },
+        "whisper": { "type": "array", "items": { "type": "string" } },
+        "arc": { "type": "array", "items": { "type": "string" } },
+        "bridge": { "type": "array", "items": { "type": "string" } },
+        "surge": { "type": "array", "items": { "type": "string" } },
+        "spiral": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "agency": {
+      "type": "object",
+      "required": ["pause", "stop", "plain_pass", "layer_shaping", "return"],
+      "properties": {
+        "pause": { "type": "boolean" },
+        "stop": { "type": "boolean" },
+        "plain_pass": { "type": "boolean" },
+        "layer_shaping": { "type": "boolean" },
+        "return": { "type": "boolean" },
+        "anchors": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "movements": {
       "type": "array",
-      "minItems": 2,
+      "minItems": 1,
       "items": {
         "type": "object",
-        "required": ["id", "label", "duration_seconds", "purpose"],
+        "required": ["id", "label", "purpose"],
         "properties": {
           "id": { "type": "string" },
           "label": { "type": "string" },
           "duration_seconds": { "type": "number", "minimum": 0 },
           "purpose": { "type": "string" },
           "active_layers": { "type": "array", "items": { "type": "string" } },
+          "sevenfold": { "type": "array", "items": { "type": "string" } },
           "transition": { "type": "string" }
-        },
-        "additionalProperties": false
+        }
       }
     },
     "layers": {
       "type": "array",
-      "minItems": 1,
       "items": {
         "type": "object",
-        "required": ["id", "kind", "enabled_by_default", "gain"],
+        "required": ["id", "kind"],
         "properties": {
           "id": { "type": "string" },
-          "kind": {
-            "enum": ["ambient", "tonal", "noise", "voice", "rhythm", "modulation", "spatial", "haptic", "cue"]
-          },
-          "enabled_by_default": { "type": "boolean" },
-          "gain": { "type": "number", "minimum": 0, "maximum": 1 },
-          "frequency_hz": { "type": "number", "exclusiveMinimum": 0 },
-          "rate_hz": { "type": "number", "exclusiveMinimum": 0 },
-          "depth": { "type": "number", "minimum": 0, "maximum": 1 },
-          "orbit_seconds": { "type": "number", "exclusiveMinimum": 0 },
+          "kind": { "type": "string" },
+          "gain": { "type": "number" },
+          "frequency_hz": { "type": "number" },
+          "rate_hz": { "type": "number" },
+          "depth": { "type": "number" },
+          "orbit_seconds": { "type": "number" },
           "source": { "type": "string" },
           "routing": { "type": "string" },
+          "spines": { "type": "array", "items": { "type": "string" } },
+          "sevenfold": { "type": "array", "items": { "type": "string" } },
           "notes": { "type": "array", "items": { "type": "string" } }
-        },
-        "additionalProperties": false
+        }
       }
     },
-    "canonical_motifs": {
-      "type": "array",
-      "items": {
-        "type": "object",
-        "required": ["id", "meaning", "implementation"],
-        "properties": {
-          "id": { "type": "string" },
-          "meaning": { "type": "string" },
-          "implementation": { "type": "string" },
-          "source_system": { "enum": ["Flameclyffe", "Runa", "Lioreal", "Hearthgate", "manual"] }
-        },
-        "additionalProperties": false
+    "receiving_spring": {
+      "type": "object",
+      "required": ["world_receives", "answer_enters_return", "changes_next_state"],
+      "properties": {
+        "world_receives": { "type": "boolean" },
+        "answer_enters_return": { "type": "boolean" },
+        "changes_next_state": { "type": "boolean" },
+        "answer_channels": { "type": "array", "items": { "type": "string" } }
       }
     },
-    "observation": {
-      "type": "object",
-      "required": ["pre_session", "during_session", "post_session", "stop_conditions"],
-      "properties": {
-        "pre_session": { "type": "array", "items": { "type": "string" } },
-        "during_session": { "type": "array", "items": { "type": "string" } },
-        "post_session": { "type": "array", "items": { "type": "string" } },
-        "stop_conditions": { "type": "array", "items": { "type": "string" }, "minItems": 1 }
-      },
-      "additionalProperties": false
-    },
-    "adaptation": {
-      "type": "object",
-      "properties": {
-        "automatic_changes_allowed": { "type": "boolean", "const": false },
-        "minimum_sessions_before_recommendation": { "type": "integer", "minimum": 1 },
-        "change_one_variable_at_a_time": { "type": "boolean", "const": true },
-        "approval_required": { "type": "boolean", "const": true }
-      },
-      "additionalProperties": false
-    },
-    "provenance": {
+    "lineage": {
       "type": "object",
       "required": ["created_by", "created_at", "revision_notes"],
       "properties": {
-        "created_by": { "type": "array", "items": { "type": "string" }, "minItems": 1 },
+        "created_by": { "type": "array", "items": { "type": "string" } },
         "created_at": { "type": "string", "format": "date-time" },
-        "revision_notes": { "type": "array", "items": { "type": "string" } }
-      },
-      "additionalProperties": false
+        "revision_notes": { "type": "array", "items": { "type": "string" } },
+        "source_refs": { "type": "array", "items": { "type": "string" } }
+      }
     }
-  },
-  "additionalProperties": false
+  }
 }
