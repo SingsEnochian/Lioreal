@@ -2,7 +2,7 @@
 
 World Reception Profiles (WRPs) are consent-aware, versioned descriptions of sound spaces intended to support a chosen imaginative, creative, or attentional orientation.
 
-A WRP does **not** claim to discover a single neurological or metaphysical frequency for a world. It describes a reproducible arrangement of audible sound, modulation, spatial motion, optional haptics, visual cues, and session structure, then records Rowan's subjective response so the arrangement can be refined over repeated sessions.
+A WRP does **not** claim to discover a single neurological or metaphysical frequency for a fictional world. It describes a reproducible arrangement of audible sound, modulation, spatial motion, optional haptics, visual cues, and session structure, then records Rowan's subjective response so the arrangement can be refined over repeated sessions.
 
 ## House roles
 
