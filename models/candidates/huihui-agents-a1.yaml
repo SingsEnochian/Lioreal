@@ -1,0 +1,78 @@
+id: huihui-agents-a1
+name: Huihui-Agents-A1-abliterated
+family: internscience  # InternScience/Agents-A1 base
+base: InternScience/Agents-A1
+source: huihui-ai/Huihui-Agents-A1-abliterated-GGUF
+format: gguf
+abliterated: true
+status: candidate
+licence: apache-2.0
+
+hf_id: huihui-ai/Huihui-Agents-A1-abliterated-GGUF
+local_available: false
+
+architecture:
+  type: moe  # Mixture of Experts
+  parameters_total: 35b
+  parameters_active: unknown  # MoE active count pending verification
+  modality: multimodal  # vision + text confirmed
+
+quants:
+  Q8_0: { size_gb: 36.9, feasible_local: false }
+  BF16: { size_gb: 69.4, feasible_local: false }
+
+hardware:
+  rtx_3060_laptop_6gb: blocked_by_size
+  minimum_vram_estimate: ">= 36 GB"
+  notes: >
+    Both available quants exceed the local machine's capacity by 6x.
+    Not feasible for local execution without quantisation not yet available,
+    remote hardware, or API route.
+  local_route: blocked
+  remote_route: possible  # if API endpoint is established
+  recommended_path: evaluate_via_api_or_remote
+
+roles:
+  preferred:
+    - lioreal-workshop-orchestration  # agentic + multimodal makes this compelling
+    - shared-vision-tool-use
+  secondary:
+    - general-agentic
+    - uial-remote-tool-use  # only if remote hardware established
+
+capabilities:
+  coding: unknown
+  tools: claimed  # designed as agent/tool-use oriented — claim not yet evidence
+  vision: true    # confirmed multimodal (Apache-2.0 card)
+  long_context: unknown
+  thinking_mode: unknown
+  agentic_native: true  # primary architectural intent
+
+evaluation:
+  tool_validity: pending  # highest priority — this is the agentic candidate
+  vision_accuracy: pending
+  pattern_fidelity: pending
+  hallucination_rate: pending
+  latency_tps: pending
+  adversarial_recovery: pending
+
+permissions:
+  shell: false
+  git_write: false
+  email_send: false
+  tool_access: none
+
+blockers:
+  - Hardware: local execution not feasible at any available quant
+  - Requires API endpoint or remote machine to bench test
+  - Tool-call schema validation is mandatory before shadow mode
+  - Vision accuracy must be verified before any visual routing
+
+notes: >
+  This is the most interesting outlier in the first cohort. Multimodal MoE,
+  Apache-2.0, purpose-built for agentic work, and the abliterated variant
+  removes refusals that could interfere with legitimate workshop tool use.
+  The hardware barrier is real — nothing local. But if a remote endpoint
+  is available, it deserves a proper bench with visual input + tool calls.
+  "Agents" in the name is still a claim until tool schema testing passes.
+  Do not promote based on architecture alone. Evidence earns the seat.

@@ -1,0 +1,42 @@
+{
+  "blocker": null,
+  "branch_name": "ark/manifest-v1",
+  "checks": [
+    {
+      "detail": "workshop\\NOW.md",
+      "name": "NOW.md exists",
+      "ok": true
+    },
+    {
+      "detail": "agent\\CHARTER.md",
+      "name": "Agent charter exists",
+      "ok": true
+    },
+    {
+      "detail": "workshop\\journal\\0000-the-workshop-exists.md",
+      "name": "Workshop Journal is open",
+      "ok": true
+    },
+    {
+      "detail": "supabase\\migrations\\202607200001_lioreal_workshop_agent.sql",
+      "name": "Workshop lineage migration exists",
+      "ok": true
+    },
+    {
+      "detail": "py_compile passed",
+      "name": "Agent scaffold compiles",
+      "ok": true
+    }
+  ],
+  "ending_commit": "0aa2af6964e122981cdbba50c2fac8a95701d9b5",
+  "evidence_sha256": "176014b2bd6f84db2fb9d99f17634ce17fa4ae2b13ec34f6f3de2b616e851d8d",
+  "finished_at": "2026-07-20T04:34:53.382544+00:00",
+  "mode": "workshop",
+  "risk_class": "read_only",
+  "run_key": "run-20260720T043453Z-67b97041",
+  "started_at": "2026-07-20T04:34:53.230811+00:00",
+  "starting_commit": "0aa2af6964e122981cdbba50c2fac8a95701d9b5",
+  "status": "completed",
+  "summary": "Workspace inspection completed; foundational agent artifacts are present.",
+  "task": "Inspect Lioreal Workshop Agent foundation"
+}

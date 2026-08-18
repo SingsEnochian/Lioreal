@@ -1,0 +1,48 @@
+{
+  "blocker": null,
+  "branch_name": "ark/manifest-v1",
+  "checks": [
+    {
+      "detail": "workshop\\NOW.md",
+      "healed": false,
+      "name": "NOW.md exists",
+      "ok": true
+    },
+    {
+      "detail": "agent\\CHARTER.md",
+      "healed": false,
+      "name": "Agent charter exists",
+      "ok": true
+    },
+    {
+      "detail": "workshop\\journal\\0000-the-workshop-exists.md",
+      "healed": false,
+      "name": "Workshop Journal is open",
+      "ok": true
+    },
+    {
+      "detail": "supabase\\migrations\\202607200001_lioreal_workshop_agent.sql",
+      "healed": false,
+      "name": "Workshop lineage migration exists",
+      "ok": true
+    },
+    {
+      "detail": "py_compile passed",
+      "healed": false,
+      "name": "Agent scaffold compiles",
+      "ok": true
+    }
+  ],
+  "ending_commit": "cca9358d120dbe02725ce69d910a5d887df09ba0",
+  "evidence_sha256": "966ee4d8b6a75cee23562a04782a851117dc9f4da2f145515e243d887928b742",
+  "finished_at": "2026-07-20T04:47:42.596424+00:00",
+  "healed": [],
+  "mode": "workshop",
+  "risk_class": "read_only",
+  "run_key": "run-20260720T044742Z-f4a75b4c",
+  "started_at": "2026-07-20T04:47:42.449162+00:00",
+  "starting_commit": "cca9358d120dbe02725ce69d910a5d887df09ba0",
+  "status": "completed",
+  "summary": "All checks passed.",
+  "task": "Inspect and maintain Lioreal Workshop Agent foundation"
+}

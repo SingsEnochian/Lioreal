@@ -1,0 +1,51 @@
+id: huihui-minicpm-v-4-6
+name: Huihui-MiniCPM-V-4.6-abliterated
+family: minicpm
+source: huihui-ai/Huihui-MiniCPM-V-4.6-abliterated-GGUF
+format: gguf
+abliterated: true
+status: candidate
+
+hf_id: pending_verification
+local_available: false
+
+roles:
+  preferred:
+    - vision-bench-primary
+  secondary:
+    - vethrlauf-visual-evidence
+    - uial-visual-agent
+
+capabilities:
+  coding: false
+  tools: unknown
+  vision: true  # primary capability
+  long_context: unknown
+  thinking_mode: unknown
+
+hardware:
+  size_gb: unknown
+  vram_required_gb: unknown
+  notes: >
+    MiniCPM-V is designed for efficiency — likely fits on 6GB VRAM.
+    Verify before assuming.
+
+evaluation:
+  vision_accuracy: pending  # primary axis
+  hallucination_rate: pending  # visual hallucination is a known failure mode
+  tool_validity: pending
+  pattern_fidelity: pending
+  latency_tps: pending
+  memory_usage_gb: pending
+
+permissions:
+  shell: false
+  git_write: false
+  email_send: false
+  tool_access: none
+
+notes: >
+  Vision cohort representative. MiniCPM-V is known for being compact
+  and runnable on modest hardware — verify this holds at the abliterated
+  variant. Visual hallucination (confidently describing things not in
+  the image) is the critical failure mode to test.

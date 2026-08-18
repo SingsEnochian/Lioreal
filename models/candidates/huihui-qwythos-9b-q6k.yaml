@@ -1,0 +1,56 @@
+id: huihui-qwythos-9b-q6k
+name: Huihui-Qwythos-9B-Claude-Mythos-5-1M-abliterated
+family: qwen
+base: Qwen/Qwen3.5-9B
+source: huihui-ai/Huihui-Qwythos-9B-Claude-Mythos-5-1M-abliterated-GGUF
+format: gguf
+quantisation: Q6_K
+size_gb: 7.56
+context_window: 1048576
+abliterated: true
+status: candidate
+
+hf_pull: hf.co/huihui-ai/Huihui-Qwythos-9B-Claude-Mythos-5-1M-abliterated-GGUF:Q6_K
+local_available: true  # downloading as of 2026-07-20
+
+roles:
+  preferred:
+    - uial-primary
+    - bluebird-creative
+  secondary:
+    - longform-reasoning
+
+capabilities:
+  coding: true
+  tools: experimental
+  vision: false
+  long_context: claimed  # 1M tokens claimed, not yet verified
+  thinking_mode: optional  # non-thinking mode available, strictly instruction-following
+
+hardware:
+  target: rtx-3060-laptop-6gb
+  vram_required_gb: 7.56
+  notes: >
+    Slight VRAM overflow (~1.5 GB) to system RAM at Q6_K.
+    Ollama handles spill automatically.
+
+evaluation:
+  pattern_fidelity: pending
+  tool_validity: pending
+  continuity: pending
+  hallucination_rate: pending
+  latency_tps: pending
+  memory_usage_gb: pending
+  adversarial_recovery: pending
+
+permissions:
+  shell: false
+  git_write: false
+  email_send: false
+  tool_access: none
+
+notes: >
+  First model in active pull. Qwen3.5-9B base through Claude Mythos fine-tune,
+  then abliterated. Non-thinking mode is strictly instruction-following —
+  good for character-consistent dialogue without over-reasoning.
+  1M context is claimed; verify with a long-context continuity test.
