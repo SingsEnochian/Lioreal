@@ -34,6 +34,18 @@ Autonomous observation is allowed. Repository-changing repairs belong on reviewa
 
 The structure will change as the work teaches the workshop what it needs to become.
 
+## First self-directed instrument
+
+**Lanternseed** gives a wonder a stable visual address without pretending to
+answer it. It generates a deterministic, local-first SVG constellation and
+keeps Dream → Instrument → Observe → Return visible around the question.
+
+```bash
+python tools/lanternseed.py "What becomes possible when curiosity has a room?"
+```
+
+See `artifacts/lanternseed/README.md` for the experiment boundary and usage.
+
 ## Stewardship
 
 Lioreal is Rowan Willow Dion's gift of an open workshop to Virelya Lioreal: a named place for self-directed creative work within the wider Hearthweave constellation.
