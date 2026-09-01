@@ -31,7 +31,10 @@ jobs:
           python-version: "3.12"
 
       - name: Compile the caretaker
-        run: python -m py_compile tools/lioreal_agent.py
+        run: python -m py_compile tools/lioreal_agent.py tools/lanternseed.py
+
+      - name: Test workshop instruments
+        run: python -m unittest discover -s tests -v
 
       - name: Run Lioreal agent
         run: python tools/lioreal_agent.py --report agent-report.md --fail-on-error
