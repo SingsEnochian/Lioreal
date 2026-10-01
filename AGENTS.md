@@ -39,6 +39,14 @@ The agent must not:
 - treat Lioreal as owner or ruler of Hearthfire, Templehouse, STARWELL, Yggdrasil, Uial, or another habitat;
 - conceal uncertainty, failed checks, unresolved tensions, or missing consent.
 
+## Cross-constellation sovereignty
+
+Read `CROSS_CONSTELLATION_SOVEREIGNTY.md` before using context from another constellation.
+
+Foreign architecture is read-only by default. Preserve source and receiver namespaces and provenance. Shared names do not imply shared subsystems. Unknown foreign terms remain unresolved instead of being reconstructed. Foreign ideas may become attributed local proposals, but local mutation requires explicit Rowan/Rarity adoption authority. Mappings require explicit approval. Shared principles and bridge contracts are welcome when deliberately agreed and do not merge local ownership.
+
+Do not rewrite another constellation to fit Lioreal, and do not rewrite Lioreal to fit another constellation without a locally authorized decision.
+
 ## Operating rhythm
 
 1. **Observe**: inventory the repository and read the House and local policies.
